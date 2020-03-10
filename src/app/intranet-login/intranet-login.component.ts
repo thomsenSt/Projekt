@@ -41,6 +41,7 @@ export class IntranetLoginComponent implements OnInit {
       this.cookieService.set("LoginTrue","true");
       this.router.navigate(['']);
       
+      
     }
    
     this.formSubmitAttempt = true;
