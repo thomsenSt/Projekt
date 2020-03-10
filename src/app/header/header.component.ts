@@ -10,14 +10,19 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   constructor(private cookieService: CookieService,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
   }
+  ws(){
+    this.router.navigate(['ws2020']);
+  }
+
   logout(){
     console.log("sd")
     this.cookieService.delete('LoginTrue')
     window.location.reload();
-
+    
   }
 }

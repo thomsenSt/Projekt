@@ -37,9 +37,10 @@ export class IntranetLoginComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
+      window.location.reload();
       this.cookieService.set("LoginTrue","true");
       this.router.navigate(['']);
-      window.location.reload();
+      
     }
    
     this.formSubmitAttempt = true;

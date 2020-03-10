@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-anmelde-formular',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./anmelde-formular.component.scss']
 })
 export class AnmeldeFormularComponent implements OnInit {
-
-  constructor() { }
+  form: FormGroup;
+  constructor(private fb: FormBuilder,) { }
 
   ngOnInit(): void {
+  }
+
+  submit(){
+    
   }
 
 }
