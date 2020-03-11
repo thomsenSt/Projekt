@@ -11,6 +11,8 @@ import { MaterialImportModule } from './material-import/material-import.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { AnmeldeFormularComponent } from './winterSportTag/anmelde-formular/anmelde-formular.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PrintLayoutComponent } from './winterSportTag/anmelde-formular/print-layout/print-layout.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +20,16 @@ import { AnmeldeFormularComponent } from './winterSportTag/anmelde-formular/anme
     HeaderComponent,
     IntranetLoginComponent,
     HomeComponent,
-    AnmeldeFormularComponent
+    AnmeldeFormularComponent,
+    PrintLayoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MaterialImportModule
+    MaterialImportModule,
+    HttpClientModule
   ],
   providers: [ CookieService],
   bootstrap: [AppComponent]

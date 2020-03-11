@@ -1,3 +1,4 @@
+import { PrintLayoutComponent } from './winterSportTag/anmelde-formular/print-layout/print-layout.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { IntranetLoginComponent } from './intranet-login/intranet-login.component';
@@ -9,7 +10,8 @@ import { AnmeldeFormularComponent } from './winterSportTag/anmelde-formular/anme
 const routes: Routes = [
   { path: 'login', component: IntranetLoginComponent },
   { path: '', component: HomeComponent},
-  { path: 'ws2020', component: AnmeldeFormularComponent}
+  { path: 'ws2020', component: AnmeldeFormularComponent},
+  { path: 'print', component: PrintLayoutComponent}
 ];
 
 @NgModule({
