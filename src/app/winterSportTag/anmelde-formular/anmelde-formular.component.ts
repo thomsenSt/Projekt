@@ -3,6 +3,8 @@ import { ApiZugriffService } from './../../services/api-zugriff.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Signup } from 'src/app/model/signup.model';
+import { sign } from 'crypto';
 
 @Component({
   selector: 'app-anmelde-formular',
@@ -12,6 +14,7 @@ import { Router } from '@angular/router';
 export class AnmeldeFormularComponent implements OnInit {
   dis: Disciplin;
   form: FormGroup;
+  SingValue: Signup;
   disciplinValue;
   classes = ['1a','1b','2a','2b', '3a', '3b', '4a', '4b'];
   constructor(private fb: FormBuilder,
@@ -26,7 +29,7 @@ export class AnmeldeFormularComponent implements OnInit {
       disciplin: ['', Validators.required],
       difficult: ['', Validators.required]
     });
-    this.ApiZugriffService.sendGetRequest().subscribe((data: Disciplin)=>{
+    this.ApiZugriffService.sendGetDisciplin().subscribe((data: Disciplin)=>{
       this.dis = data;
       console.log(this.dis);
     })
@@ -37,6 +40,15 @@ export class AnmeldeFormularComponent implements OnInit {
   }
 
   submit(){
+    console.log(this.form.value)
+
+
+      this.ApiZugriffService.postSignUp({first_name: this.form.value.vorName, last_name: this.form.value.name, class:this.form.value.class, disciplin_id:this.form.value.disciplin.disciplin_id}).subscribe(data => {
+        console.log(data)
+      
+        })
+
+      console.log(this.SingValue)
     if (this.form.valid) {
       console.log(this.form.value);
     }
