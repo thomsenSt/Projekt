@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Signup } from 'src/app/model/signup.model';
-import { sign } from 'crypto';
 
 @Component({
   selector: 'app-anmelde-formular',
@@ -27,7 +26,6 @@ export class AnmeldeFormularComponent implements OnInit {
       vorName: ['', Validators.required],
       class: ['', Validators.required],
       disciplin: ['', Validators.required],
-      difficult: ['', Validators.required]
     });
     this.ApiZugriffService.sendGetDisciplin().subscribe((data: Disciplin)=>{
       this.dis = data;
@@ -43,14 +41,15 @@ export class AnmeldeFormularComponent implements OnInit {
     console.log(this.form.value)
 
 
-      this.ApiZugriffService.postSignUp({first_name: this.form.value.vorName, last_name: this.form.value.name, class:this.form.value.class, disciplin_id:this.form.value.disciplin.disciplin_id}).subscribe(data => {
-        console.log(data)
-      
-        })
+
 
       console.log(this.SingValue)
     if (this.form.valid) {
       console.log(this.form.value);
+      this.ApiZugriffService.postSignUp({first_name: this.form.value.vorName, last_name: this.form.value.name, class:this.form.value.class, disciplin_id:this.form.value.disciplin.disciplin_id}).subscribe(data => {
+        console.log(data)
+
+        })
     }
 
   }
