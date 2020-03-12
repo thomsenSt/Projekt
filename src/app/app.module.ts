@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PrintLayoutComponent } from './winterSportTag/anmelde-formular/print-layout/print-layout.component';
 import { CompanionComponent } from './components/companion/companion.component';
 import { FormsModule } from '@angular/forms';
+import { LehrerComponent } from './component/lehrer/lehrer.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     AnmeldeFormularComponent,
     PrintLayoutComponent,
     CompanionComponent,
+    LehrerComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  ski(){}
+  ski(){
+    this.router.navigate(['ws2020']);
+  }
   comp(){
     this.router.navigate(["begleitperson"])
   }

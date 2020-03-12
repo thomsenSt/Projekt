@@ -31,6 +31,10 @@ export class HeaderComponent implements OnInit {
     this.cookieService.delete('LoginTrue')
     this.cookieService.delete('isTeacher')
     window.location.reload();
-    
+
+  }
+
+  lehrer(){
+    this.router.navigate(['lehrer'])
   }
 }

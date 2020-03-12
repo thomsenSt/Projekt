@@ -1,3 +1,4 @@
+import { LehrerComponent } from './component/lehrer/lehrer.component';
 import { PrintLayoutComponent } from './winterSportTag/anmelde-formular/print-layout/print-layout.component';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'ws2020', component: AnmeldeFormularComponent},
   { path: 'print', component: PrintLayoutComponent},
-  { path: 'begleitperson', component: CompanionComponent}
+  { path: 'begleitperson', component: CompanionComponent},
+  {path: 'lehrer', component: LehrerComponent}
 ];
 
 @NgModule({

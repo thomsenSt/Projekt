@@ -3,12 +3,11 @@
       Grundschule
     </span>
     <span class="fill-remaining-space"></span>
-    <button mat-button (click)="ws()" >Menu Option 01</button>
-    
+
     <!--button mat-button routerLink="login" *ngIf="!isLoggedIn; else notLoggedIn">Login</button>
     <ng-template #notLoggedIn>
       <button mat-button (click)="onLogout()">Logout</button>
     </ng-template -->
     <button mat-button (click)="logout()" >Logout</button>
-    <button mat-button *ngIf="teacherTrue">Lehrerbereich</button>
+    <button mat-button *ngIf="teacherTrue" (click)="lehrer()">Lehrerbereich</button>
   </mat-toolbar>

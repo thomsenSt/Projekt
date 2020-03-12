@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiZugriffService {
 
-  url = /*"http://10.20.6.26:3000"*/ "http://10.20.6.26:3000";
+  url = /*"http://10.20.6.26:3000" */ "http://192.168.1.4:3000";
   constructor(private httpClient: HttpClient) { }
 
   public sendGetDisciplin(): Observable<Disciplin>{
@@ -35,5 +35,13 @@ export class ApiZugriffService {
 
   public getGroupById(value) {
     return this.httpClient.get(this.url+"/get-group-by-disciplin-id?disciplin_id="+value);
+  }
+
+  public getForms(){
+    return this.httpClient.get(this.url+"/get-forms");
+  }
+
+  public ApproveForm(value) {
+    return this.httpClient.get(this.url+"/approve?form_id="+value);
   }
 }

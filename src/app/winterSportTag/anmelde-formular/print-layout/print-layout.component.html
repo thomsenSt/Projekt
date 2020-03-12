@@ -1,8 +1,18 @@
-<div class="a4">
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div><span>Hier mit melde ich mich für den Wintersporttag an</span><span>unterschift</span></div>
+<div *ngIf="prints != null"  class="a4">
+<div > <span class="vorlage">Name: </span> {{prints.name}}</div>
+<br>
+<div > <span class="vorlage">Vorname: </span> {{prints.vorName}}</div>
+<br>
+<div > <span class="vorlage">Klasse: </span> {{prints.class}}</div>
+<br>
+<div > <span class="vorlage">Disziplin: </span> <span>{{prints.disciplin.disciplin_name}}</span> Leistungsstufe: {{prints.disciplin.difficulty}}</div>
+<br>
+<div > <span class="vorlage">Kosten: </span>  {{prints.disciplin.price}}€</div>
+<br>
+<br>
+<br>
+<div><span>Hier mit melde ich mich für den Wintersporttag an </span></div>
+<br>
+<br>
+<div>Unteschrit <span unter></span></div>
 </div>

@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <th>Vorname</th>
+    <th>Nachname</th>
+    <th>Klasse</th>
+    <th>Disziplin</th>
+    <th>Leistungsstufe</th>
+    <th>Preis</th>
+    <th>Bestätigt</th>
+  </tr>
+  <tr *ngFor="let item of tda" >
+    <td> {{item.first_name}} </td>
+    <td> {{item.last_name}} </td>
+    <td> {{item.class}} </td>
+    <td> {{item.disciplin_name}} </td>
+    <td> {{item.difficulty}} </td>
+    <td> {{item.price}} </td>
+    <td> {{!!item.approved}} <span *ngIf="!!item.approved==false" > <button (click)="approval(item.form_id)">Bestätigen</button> </span> </td>
+
+  </tr>
+</table>

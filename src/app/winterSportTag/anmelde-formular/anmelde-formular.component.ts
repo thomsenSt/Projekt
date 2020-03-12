@@ -15,7 +15,9 @@ export class AnmeldeFormularComponent implements OnInit {
   form: FormGroup;
   SingValue: Signup;
   disciplinValue;
+  prints;
   classes = ['1a','1b','2a','2b', '3a', '3b', '4a', '4b'];
+  submitted: boolean;
   constructor(private fb: FormBuilder,
     private ApiZugriffService: ApiZugriffService,
     private router: Router) { }
@@ -38,6 +40,7 @@ export class AnmeldeFormularComponent implements OnInit {
   }
 
   submit(){
+
     console.log(this.form.value)
 
 
@@ -45,9 +48,12 @@ export class AnmeldeFormularComponent implements OnInit {
 
       console.log(this.SingValue)
     if (this.form.valid) {
+      this.submitted=true;
+      this.prints=this.form.value;
       console.log(this.form.value);
       this.ApiZugriffService.postSignUp({first_name: this.form.value.vorName, last_name: this.form.value.name, class:this.form.value.class, disciplin_id:this.form.value.disciplin.disciplin_id}).subscribe(data => {
         console.log(data)
+
 
         })
     }

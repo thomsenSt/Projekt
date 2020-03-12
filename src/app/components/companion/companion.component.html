@@ -1,46 +1,53 @@
-
-<form [formGroup]="form">
-<mat-form-field>
-    <mat-label>Disciplin</mat-label>
-    <mat-select  formControlName="disciplin" >
-      <mat-option *ngFor="let discis of dis" [value]="discis" >
-        {{discis.disciplin_name}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-</form>
-<button *ngIf="!weg"  (click)="companionProof()" mat-button>überprüfen</button>
-<div>
-  <div *ngIf="comp1">
-    <form   [formGroup]="forms">
-    <mat-form-field appearance="fill" >
-      <mat-label >Name</mat-label>
-      <input matInput formControlName="NameVor">
-    </mat-form-field>
-    <mat-form-field appearance="fill" >
-      <mat-label >Vorname</mat-label>
-      <input matInput formControlName="Name">
-    </mat-form-field>
-  </form>
-  <button *ngFor="let dise of dist"  (click)="comps1(dise)" mat-button>absenden</button>
-  </div>
-
-  <div *ngIf="comp2">
-    <form   [formGroup]="forms">
-      <mat-form-field appearance="fill" >
-        <mat-label >Name</mat-label>
-        <input matInput formControlName="NameVor">
-      </mat-form-field>
-      <mat-form-field appearance="fill" >
-        <mat-label >Vorname</mat-label>
-        <input matInput formControlName="Name">
+<div *ngIf="!abesend" >
+  <h2>
+    Anmeldung zur Begleitperson
+  </h2>
+  <form [formGroup]="form">
+    <mat-form-field>
+        <mat-label>Disciplin</mat-label>
+        <mat-select  formControlName="disciplin" >
+          <mat-option *ngFor="let discis of dis" [value]="discis" >
+            {{discis.disciplin_name}} <span *ngIf="discis.difficulty != null" > {{discis.difficulty}} </span>
+          </mat-option>
+        </mat-select>
       </mat-form-field>
     </form>
-    <button *ngFor="let dise of dist" (click)="comps2(dise)" mat-button>absenden</button>
-  </div>
+    <button *ngIf="!weg"  (click)="companionProof()" mat-button>überprüfen</button>
+    <div>
+      <div *ngIf="comp1">
+        <form   [formGroup]="forms">
+        <mat-form-field appearance="fill" >
+          <mat-label >Name</mat-label>
+          <input matInput formControlName="NameVor">
+        </mat-form-field>
+        <mat-form-field appearance="fill" >
+          <mat-label >Vorname</mat-label>
+          <input matInput formControlName="Name">
+        </mat-form-field>
+      </form>
+      <button *ngFor="let dise of dist"  (click)="comps1(dise)" mat-button>absenden</button>
+      </div>
+
+      <div *ngIf="comp2">
+        <form   [formGroup]="forms">
+          <mat-form-field appearance="fill" >
+            <mat-label >Name</mat-label>
+            <input matInput formControlName="NameVor">
+          </mat-form-field>
+          <mat-form-field appearance="fill" >
+            <mat-label >Vorname</mat-label>
+            <input matInput formControlName="Name">
+          </mat-form-field>
+        </form>
+        <button *ngFor="let dise of dist" (click)="comps2(dise)" mat-button>absenden</button>
+      </div>
+    </div>
 </div>
+<div *ngIf="falsi" > Entschuldigung für diese Gruppe gibt es genug Begleitpersonen</div>
 
-
+<div *ngIf="abesend" >
+  Sie haben sich erfolgreich als Begleitperson eingetragen
+</div>
 <!-- <form [formGroup]="form">
   <select formControlName="disciplin">
     <option [value]="disciplin.disciplin_name" *ngFor="let disciplin of dis">

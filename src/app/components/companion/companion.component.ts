@@ -17,6 +17,8 @@ export class CompanionComponent implements OnInit {
   comp1: boolean;
   comp2: boolean;
   weg: boolean;
+  abesend: boolean = false;
+  falsi: boolean;
   constructor(private ApiZugriffService: ApiZugriffService,
     private fb: FormBuilder) { }
 
@@ -41,12 +43,16 @@ export class CompanionComponent implements OnInit {
 
       console.log(data)
       this.dist = data;
-      if(this.dist.companion_1 == null){
+      if(!this.dist.companion_1){
         this.comp1 = true;
-
-      }else if(this.dist.companion_2 == null){
+        console.log("schau")
+      }else if(!this.dist.companion_2 ){
         this.comp2 = true;
 
+      }
+
+      if(this.dist.companion_2 != null && this.dist.companion_1 != null){
+        this.falsi = true;
       }
     })
     this.CompanionName=true;
@@ -60,7 +66,7 @@ comps1(value){
   this.ApiZugriffService.putCompanion1(this.forms.value.NameVor+this.forms.value.Name,value.group_id).subscribe(data => {
 
     })
-
+    this.abesend = true;
 
 }
 
@@ -69,7 +75,7 @@ comps2(value){
   this.ApiZugriffService.putCompanion2(this.forms.value.NameVor+this.forms.value.Name,value.group_id).subscribe(data => {
 
     })
-
+this.abesend = true;
 }
 }
 
